@@ -131,15 +131,13 @@ class Feed extends React.Component {
 			<>
 				<div className="container">
 					<Helmet>
-						<title>Feed</title>
+						<title>Posts</title>
 					</Helmet>
 					<Container>
-						<h1>Heya!</h1>
-						<br />
 						<form id="feed-form" onSubmit={this.handleSubmit.bind(this)} method="POST" elevation={0}>
 							<Form.Control
 								as="textarea"
-								rows="5"
+								rows="8"
 								name="feed"
 								elevation={0}
 								value={this.state.content}

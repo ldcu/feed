@@ -23,13 +23,9 @@ class Hash extends Component {
 				<title>Hash</title>
 			</Helmet>
 			<Container>
-				<h1>Hash</h1>
-
-				<br />
-
 				<Form.Control
 					as="textarea"
-					rows="5"
+					rows="8"
 					onChange={this.inputChangedHandler}
 					value={this.state.userInput}
 					className="textarea"

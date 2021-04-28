@@ -40,8 +40,8 @@ export default class Goals extends React.Component {
 			<Helmet>
 				<title>Goals</title>
 			</Helmet>
-			<h1>2021</h1>
-			<br />
+			{/* <h1>2021</h1> */}
+			{/* <br /> */}
 			<div className="tab-space">
 				<ul>
 					{!isLoading ? (

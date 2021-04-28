@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Feed from "./pages/feed";
+import Posts from "./pages/posts";
 import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Goals from "./pages/goals";
@@ -53,12 +53,13 @@ const AuthRoute = ({ component: Component, ...rest }) => (
                 <Navbar.Collapse>
                   <Nav className="mr-auto">
                     <Nav.Link eventKey="2" href="/" title="home" className="menu">home</Nav.Link>
-                    <Nav.Link eventKey="3" href="/feed" title="posts" className="menu">share</Nav.Link>
+                    <Nav.Link eventKey="3" href="/posts" title="posts" className="menu">posts</Nav.Link>
                     <Nav.Link eventKey="4" href="/goals" title="goals" className="menu">goals</Nav.Link>
                     <Nav.Link eventKey="4" href="/hash" title="hash" className="menu">hash</Nav.Link>
                     <Nav.Link eventKey="4" href="/yt" title="yt" className="menu">yt</Nav.Link>
                   </Nav>
                   <Nav className="justify-content-end">
+                    {/* <Nav.Link eventKey="4" href="/" title="out" className="menu" onClick={handleSubmit}>share</Nav.Link> */}
                     <Nav.Link eventKey="4" href="/" title="out" className="menu" onClick={handleSubmit}>out</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
@@ -81,7 +82,7 @@ export default () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/login" render={(props) => <Login {...props} />} />
-      <AuthRoute exact path="/feed" component={Feed} />
+      <AuthRoute exact path="/posts" component={Posts} />
       <AuthRoute exact path="/goals" component={Goals} />
       <AuthRoute exact path="/hash" component={Hash} />
       <AuthRoute exact path="/home" component={Home} />
