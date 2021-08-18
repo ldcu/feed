@@ -181,12 +181,12 @@ class Feed extends React.Component {
 						{/* Pagination. */}
 						{this.state.totalFeed > this.state.limit && (
 							<BasicPagination
-								pages={this.state.totalFeed / this.state.limit}
-								nextPage={this.nextpage}
-								currentPage={this.state.currentPage}
-								tenChange={this.tenChange}
-								hundreadChange={this.hundreadChange}
-							></BasicPagination>
+							pages={this.state.totalFeed / this.state.limit}
+							nextPage={this.nextpage}
+							currentPage={this.state.currentPage}
+							tenChange={this.tenChange}
+							hundreadChange={this.hundreadChange}
+							/>
 						)}
 
 					</Container>
@@ -226,7 +226,15 @@ class Feed extends React.Component {
 
 function formatDate(string) {
 	// Format date into DD Mon YYYY, HH:MM:SS.
-	var options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", weekday: "long", };
+	const options = {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+		hour: "numeric",
+		minute: "numeric",
+		second: "numeric",
+		weekday: "long",
+	};
 	return new Date(string).toLocaleDateString("en-GB", options);
 }
 

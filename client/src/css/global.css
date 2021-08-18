@@ -24,9 +24,9 @@ body {
 	background: #1f1f1f;
 }
 
-::-webkit-selection {
-	background: #1f1f1f;
-}
+/*::-webkit-selection {*/
+/*	background: #1f1f1f;*/
+/*}*/
 
 ::selection {
 	background: #1f1f1f;

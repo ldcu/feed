@@ -5,9 +5,9 @@ const checkAuth = require("../middleware/check-auth"); // checkAuth function is 
 module.exports = (app) => {
 
 	app.get("/api/feed/", checkAuth, (req, res) => {
-		var page = parseInt(req.query.page) || 0;
-		var limit = parseInt(req.query.limit) || 3; // If not limit provided in the API call, return 3 only.
-		var query = {};
+		const page = parseInt(req.query.page) || 0;
+		const limit = parseInt(req.query.limit) || 3; // If not limit provided in the API call, return 3 only.
+		const query = {};
 		Feed.find(query)
 			.skip(page * limit)
 			.limit(limit)
