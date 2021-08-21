@@ -54,7 +54,7 @@ export default class Home extends React.Component {
 
 	render() {
 		const day = 21, month = "Apr", year = 1996;
-		const domain_end_day = 16, domain_end_month = "Feb", domain_end_year = 2022;
+		const domain_end_day = new Date().getDay(), domain_end_month = new Date().getMonth(), domain_end_year = new Date().getFullYear();
 
 		let age = calculateAge(`${month} ${day} ${year}`);
 		let left = timeLeft(`${month} ${day} ${year}`);
@@ -168,10 +168,11 @@ function timeLeft() {
 }
 
 function domainTimeLeft() {
-	// Calculate time left for age.
+	// Calculate time left for domain.
 
-	let today = new Date(),
-		diff = today.getTime(), // Difference in milliseconds.
+	let today = new Date("16 Feb 2022"),
+		dob = new Date(), // Birthday already has a value.
+		diff = today.getTime() - dob.getTime(), // Difference in milliseconds.
 		years = Math.floor(diff / 31556736000), // Convert milliseconds into years. // Milliseconds in a year 1000*24*60*60*365.24 = 31556736000.
 		days_diff = Math.floor((diff % 31556736000) / 86400000), // 1 day has 86400000 milliseconds.
 		months = Math.floor(days_diff / 30.4167), // 1 month has 30.4167 days.
