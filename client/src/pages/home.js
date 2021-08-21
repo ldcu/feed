@@ -53,15 +53,12 @@ export default class Home extends React.Component {
 	}
 
 	render() {
-		const day = 21,
-			month = "Apr",
-			year = 1996;
-
+		const day = 21, month = "Apr", year = 1996;
 		const domain_end_day = 16, domain_end_month = "Feb", domain_end_year = 2022;
 
 		let age = calculateAge(`${month} ${day} ${year}`);
 		let left = timeLeft(`${month} ${day} ${year}`);
-		let domain_time_left = timeLeft(`${domain_end_month} ${domain_end_day} ${domain_end_year}`)
+		let domain_time_left = domainTimeLeft(`${domain_end_month} ${domain_end_day} ${domain_end_year}`)
 
 		const { isLoading, quotes, links } = this.state;
 
@@ -103,8 +100,10 @@ export default class Home extends React.Component {
             {age} old.
             <br />
             <br /> More {left} and I'll be one hundred years old.
+			<br />
 			<br/> {domain_time_left} and the llllllll.org domain will expire.
           </div>
+
           <br />
 
           <h1>Saved links</h1>
@@ -144,7 +143,7 @@ function calculateAge(birthday) {
 	// Calculate age.
 
 	let today = new Date(),
-		dob = new Date(birthday), // Birthay already has a value.
+		dob = new Date(birthday), // Birthday already has a value.
 		diff = today.getTime() - dob.getTime(), // Difference in milliseconds.
 		years = Math.floor(diff / 31556736000), // Convert milliseconds into years. // Milliseconds in a year 1000*24*60*60*365.24 = 31556736000.
 		days_diff = Math.floor((diff % 31556736000) / 86400000), // 1 day has 86400000 milliseconds.
@@ -158,8 +157,21 @@ function timeLeft() {
 	// Calculate time left for age.
 
 	let today = new Date("21 Apr 2096"),
-		dob = new Date(), // Birthay already has a value.
+		dob = new Date(), // Birthday already has a value.
 		diff = today.getTime() - dob.getTime(), // Difference in milliseconds.
+		years = Math.floor(diff / 31556736000), // Convert milliseconds into years. // Milliseconds in a year 1000*24*60*60*365.24 = 31556736000.
+		days_diff = Math.floor((diff % 31556736000) / 86400000), // 1 day has 86400000 milliseconds.
+		months = Math.floor(days_diff / 30.4167), // 1 month has 30.4167 days.
+		days = Math.floor(days_diff % 30.4167);
+
+	return `${years} years, ${months} months, ${days} days`;
+}
+
+function domainTimeLeft() {
+	// Calculate time left for age.
+
+	let today = new Date(),
+		diff = today.getTime(), // Difference in milliseconds.
 		years = Math.floor(diff / 31556736000), // Convert milliseconds into years. // Milliseconds in a year 1000*24*60*60*365.24 = 31556736000.
 		days_diff = Math.floor((diff % 31556736000) / 86400000), // 1 day has 86400000 milliseconds.
 		months = Math.floor(days_diff / 30.4167), // 1 month has 30.4167 days.
