@@ -57,8 +57,11 @@ export default class Home extends React.Component {
 			month = "Apr",
 			year = 1996;
 
+		const domain_end_day = 16, domain_end_month = "Feb", domain_end_year = 2022;
+
 		let age = calculateAge(`${month} ${day} ${year}`);
 		let left = timeLeft(`${month} ${day} ${year}`);
+		let domain_time_left = timeLeft(`${domain_end_month} ${domain_end_day} ${domain_end_year}`)
 
 		const { isLoading, quotes, links } = this.state;
 
@@ -100,6 +103,7 @@ export default class Home extends React.Component {
             {age} old.
             <br />
             <br /> More {left} and I'll be one hundred years old.
+			<br/> {domain_time_left} and the llllllll.org domain will expire.
           </div>
           <br />
 
